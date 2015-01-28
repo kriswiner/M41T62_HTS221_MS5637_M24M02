@@ -1,4 +1,7 @@
 # M41T62_HTS221_MS5637_M24M02
+
+![m41t62_hts221 1](https://cloud.githubusercontent.com/assets/6698410/5943657/c43844e8-a6d5-11e4-9e36-93ca1811b901.jpg)
+
 Demonstrate M41T62 Real Time Clock operation including define registers, read time and date, set alarms,
 configure the interrupts, calibrate the clock with temperature compensation. Also read the pressure and
 temperature from the MS5637 altimeter, read the relative humidity from the HTS221 humidity sensor, and read from and write to the M24M02DFC 256 kbyte EEPROM.
