@@ -483,10 +483,12 @@ void loop()
      display.setCursor(0,60); display.print(month); display.print("/"); display.print(date); display.print("/2"); display.print(century); display.println(year);
      display.setCursor(0,70); display.print(Freq, 4); display.print(" Hz "); 
       
-     uint8_t calib = (int)((1000000.*(Freq - 512.)/512.)/2.);  // calculate number of calibration bits
+     uint8_t calib = (int)((1000000.*(Freq - 512.)/512.));  // calculate number of calibration bits
+     if(calib > 0) calib /= 2; // if clock fast, subtract calib/2 counts in calibration counter to slow it down
+     if(calib < 0) calib /= 4;  // if clock slow, add calib/4 counts in the calibration counter to speed it up
      // calibration register max is 0x1F = 31, sign is positive if bit 5 is set to 1
-     if (calib >= -31 && calib < 0) writeByte(M41T62_ADDRESS, M41T62_CAL, 0x20 | calib);  // clock fast, add counts to slow a bit
-     if (calib <= +31 && calib > 0) writeByte(M41T62_ADDRESS, M41T62_CAL, calib);        // clock slow, subtract count to speed up a bit
+     if (calib >= -31 && calib < 0) writeByte(M41T62_ADDRESS, M41T62_CAL, 0x20 | calib);  // clock fast, add 4 ppm/count to slow a bit
+     if (calib <= +31 && calib > 0) writeByte(M41T62_ADDRESS, M41T62_CAL, calib);          // clock slow, subtract 2 ppm/count to speed up a bit
      display.setCursor(0,80); display.print((int)(1000000.*(Freq - 512.)/512.)); display.print(" ppm "); 
      uint8_t calreg = readByte(M41T62_ADDRESS, M41T62_CAL);
      if (calreg <= 0x0F) {display.print("cal 0x0"); display.print(calreg, HEX);}
