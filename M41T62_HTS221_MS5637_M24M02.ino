@@ -6,7 +6,7 @@
  
  Demonstrate M41T62 Real Time Clock operation including define registers, read time and date, set alarms,
  configure the interrupts, calibrate the clock with temperature compensation. Also read the pressure and
- temperature from the MS5637 altimeter, read the relatuve humidity from the HTS221 humif=dity sensor, andread from and write to the M24M02DFC 256 kbyte EEPROM.
+ temperature from the MS5637 altimeter, read the relative humidity from the HTS221 humidity sensor, andread from and write to the M24M02DFC 256 kbyte EEPROM.
  Sketch runs on the 3.3 V 8 MHz Pro Mini and the Teensy 3.1.
  
  This sketch is specifically for the Teensy 3.1 M41T62 RTC Add-On shield with the M41T62 RTC, an MS5637 pressure/temperature sensor, 
