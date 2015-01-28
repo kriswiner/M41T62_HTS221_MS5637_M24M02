@@ -17,11 +17,17 @@ SDA and SCL should have external pull-up resistors (to 3.3V).
 The M41T62+MS5637+HTS221+M24M02DFC board is so low power it can run off of digitalWrite on any GPIO pin. On the Teensy 3.1:
  
  Hardware setup:
- M41T62 Mini Add-On ------- Teensy 3.1
- VDD ----------------------  10 digitalWrite(HIGH)
+ M41T62 Mini Add-On ------- Teensy 3.1 
+ 
+ VDD ----------------------  10 digitalWrite(HIGH) 
+ 
  SDA ----------------------- 17
+ 
  SCL ----------------------- 16
+ 
  GND ----------------------  15 digitalWrite(LOW)
+ 
  IRQ------------------------  9
+ 
  SW-------------------------  8
  
