@@ -483,7 +483,7 @@ void loop()
      display.setCursor(0,60); display.print(month); display.print("/"); display.print(date); display.print("/2"); display.print(century); display.println(year);
      display.setCursor(0,70); display.print(Freq, 4); display.print(" Hz "); 
       
-     uint8_t calib = (int)((1000000.*(Freq - 512.)/512.));  // calculate number of calibration bits
+     uint8_t calib = (int)(1000000.*(Freq - 512.)/512.);  // calculate number of calibration bits
      if(calib > 0) calib /= 2; // if clock fast, subtract calib/2 counts in calibration counter to slow it down
      if(calib < 0) calib /= 4;  // if clock slow, add calib/4 counts in the calibration counter to speed it up
      // calibration register max is 0x1F = 31, sign is positive if bit 5 is set to 1
